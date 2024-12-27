@@ -1,0 +1,453 @@
+/* Base styles */
+:root {
+    --primary-font: 'Cormorant Garamond', serif;
+    --secondary-font: 'Ibarra Real Nova', serif;
+    --gold: #B8860B;
+    --deep-brown: #544a3d;
+    --cream: #F5F5DC;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-font);
+    color: var(--deep-brown);
+    background-image: url('IvoryPaper2.png');
+    background-repeat: repeat;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: 'Vintage Heirloom';
+    src: url('../static/VintageHeirloom.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Updated heading styles to use Ibarra Real Nova */
+h1, h3, h4, h5, h6 {
+    font-family: var(--secondary-font);
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--gold);
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--deep-brown);
+    font-family: var(--secondary-font);
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--gold);
+}
+
+.page-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+.page-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.page-nav a {
+    text-decoration: none;
+    color: var(--deep-brown);
+    font-family: var(--secondary-font);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.page-nav a:hover {
+    color: var(--gold);
+}
+
+.page-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.page-nav a:hover::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.733);
+    padding: 2rem;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-out;
+    border: 2px solid var(--gold);
+    position: relative; /* Added for corner positioning */
+    border: 2px solid var(--gold);
+    outline: 2px solid var(--gold);
+    outline-offset: -8px; /* Negative value creates inward offset */
+}
+
+.headerGallery {
+    height: fit-content;
+    text-align: center;
+    line-height: 0;
+    padding: 0;
+
+}
+
+.headerGallery h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+/* Corner flourishes */
+.corner-flourish {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+}
+
+.corner-flourish.ul {
+    top: 20px;
+    left: 20px;
+}
+
+.corner-flourish.ur {
+    top: 20px;
+    right: 20px;
+}
+
+.corner-flourish.bl {
+    bottom: 20px;
+    left: 20px;
+}
+
+.corner-flourish.br {
+    bottom: 20px;
+    right: 20px;
+}
+
+h1 {
+    font-family: 'Vintage Heirloom', serif;
+
+    font-size: 6rem;
+    font-weight: 700;
+
+    color:#B8860B;
+    padding-top: 30px;
+}
+
+h2 {
+    font-family: 'Vintage Heirloom', serif;
+    font-size: 5rem;
+    font-weight: 700;
+
+}
+
+
+
+.date {
+    font-size: 1.5rem;
+    color: var(--deep-brown);
+    font-family: var(--primary-font);
+}
+
+/* Section styling */
+section {
+    background-color: rgba(255, 255, 255, 0.753);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-margin-top: 2rem;
+    border: 2px solid var(--gold);
+ }
+
+
+
+ h2 {
+    color: var(--deep-brown);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    margin-top: 0;
+    color:#B8860B;
+}
+
+/* Cards */
+.detail-card, .hotel-card {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.6s ease-out;
+    border: 1px solid var(--gold);
+ }
+
+.detail-card p, .hotel-card p {
+    font-size: 1.25rem;
+}
+
+.detail-card h3, .hotel-card h3 {
+    font-family: var(--secondary-font);
+    font-weight: 500;
+}
+
+/* RSVP Section */
+.rsvp {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--secondary-font);
+}
+
+.weddingDate {
+    font-size: 3rem;
+    color:#B8860B;
+}
+
+/* Add this to ensure flourish is visible in RSVP section */
+.rsvp .flourish-h2 {
+    width: 100%; /* Ensure flourish takes full width */
+    display: block; /* Override any flex behavior */
+    position: relative; /* Ensure proper stacking */
+    z-index: 1; /* Ensure visibility */
+}
+
+.rsvp p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* RSVP Button */
+.rsvp-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.rsvp-button:hover {
+    background-color: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+}
+
+/* Gallery main override */
+.gallery-main {
+    max-width: none;
+    width: 100%;
+    flex: 1;
+}
+
+/* Gallery specific styles */
+.photo-gallery {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.frame-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.frame-container div {
+    width: 100%;
+    margin-bottom: -15%;
+    position: relative;
+}
+
+.frame-container div:last-child {
+    margin-bottom: 0;
+}
+
+.frame-container div:nth-child(odd) {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.frame-container div:nth-child(even) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.frame-container img {
+    width: 55%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: auto;
+    font-family: var(--primary-font);
+    position: relative;
+    z-index: 1;
+    font-size: 1.25rem;
+}
+
+/* Flourish styling */
+.flourish-h1, .flourish-h2 {
+    text-align: center;
+}
+
+.flourish-h1 img {
+    max-width: 300px;
+    height: auto;
+}
+
+.flourish-h2 img {
+    max-width: 280px; /* Increased from 200px */
+    height: auto;
+}
+
+.detail-card a, .hotel-card a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    font-size: 1.25rem;
+ }
+ 
+ .detail-card a:visited, .hotel-card a:visited {
+    color: var(--gold);
+ }
+ 
+ .detail-card a:hover, .hotel-card a:hover {
+    opacity: 0.65;
+ }
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+    }
+
+    .frame-container img {
+        max-width: 90%;
+    }
+    
+    .frame-container div {
+        margin-bottom: 2rem;
+    }
+    
+    .frame-container div:nth-child(odd),
+    .frame-container div:nth-child(even) {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .flourish-h1 img {
+        max-width: 150px;
+    }
+    
+    .flourish-h2 img {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
