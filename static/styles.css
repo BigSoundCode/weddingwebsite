@@ -46,6 +46,7 @@ nav {
     padding: 1rem 0;
     border-bottom: 2px solid var(--gold);
     width: 100%;
+    position: relative;
 }
 
 nav ul {
@@ -201,6 +202,9 @@ h2 {
     font-size: 1.5rem;
     color: var(--deep-brown);
     font-family: var(--primary-font);
+    text-align: center;
+    font-weight: 700;     /* or 'bold' */
+    margin: 1rem 0;
 }
 
 /* Section styling */
@@ -235,11 +239,21 @@ section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: slideUp 0.6s ease-out;
     border: 1px solid var(--gold);
+    position: relative;
+    overflow: hidden;
  }
 
 .detail-card p, .hotel-card p {
     font-size: 1.25rem;
 }
+
+.detail-card p {
+    position: relative;
+    z-index: 2;         /* Keep text above the icon */
+    max-width: 75%;     /* Ensure text doesn't go fully behind icon */
+}
+
+
 
 .detail-card h3, .hotel-card h3 {
     font-family: var(--secondary-font);
@@ -258,6 +272,17 @@ section {
 .weddingDate {
     font-size: 3rem;
     color:#B8860B;
+}
+
+.eventIcon {
+    width: 175px;
+    height: auto;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1;         /* Ensures it stays above the background */
+    pointer-events: none; /* Prevents it from interfering with text selection */
+    opacity: 0.5;
 }
 
 /* Add this to ensure flourish is visible in RSVP section */
@@ -388,6 +413,27 @@ footer {
     opacity: 0.65;
  }
 
+
+ .lang-switch {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--deep-brown);
+    font-family: var(--secondary-font);
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border: 1px solid var(--gold);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.lang-switch:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
 /* Animation Keyframes */
 @keyframes fadeIn {
     from {
@@ -409,32 +455,84 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+    
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .eventIcon {
+        display: none;  /* Hide icons on mobile */
+    }
     h1 {
-        font-size: 2rem;
+        font-size: 3rem; /* Adjusted from 2rem */
+    }
+
+    h2 {
+        font-size: 2.5rem; /* Added for h2 scaling */
     }
     
     main {
         padding: 0 1rem;
     }
 
-    .frame-container img {
-        max-width: 90%;
-    }
-    
-    .frame-container div {
-        margin-bottom: 2rem;
-    }
-    
-    .frame-container div:nth-child(odd),
-    .frame-container div:nth-child(even) {
-        justify-content: center;
-        padding: 0;
+    /* Corner flourishes scaling */
+    .corner-flourish {
+        width: 60px; /* Reduced from 100px */
     }
 
+    .corner-flourish.ul {
+        top: 15px;
+        left: 15px;
+    }
+
+    .corner-flourish.ur {
+        top: 15px;
+        right: 15px;
+    }
+
+    .corner-flourish.bl {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .corner-flourish.br {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Header adjustments */
+    header {
+        padding: 1.5rem;
+        outline-offset: -6px; /* Slightly reduced inner border offset */
+    }
+
+    .weddingDate {
+        font-size: 2rem; /* Reduced from 3rem */
+    }
+
+   /* Gallery adjustments */
+   .frame-container img {
+    width: 95%; /* Increased from 90% */
+    max-width: none; /* Remove max-width constraint */
+}
+
+.frame-container div {
+    margin-bottom: 2rem;
+}
+
+.frame-container div:nth-child(odd),
+.frame-container div:nth-child(even) {
+    justify-content: center;
+    padding: 0;
+}
+
+  /* Adjust gallery container padding */
+  .photo-gallery {
+    width: 100%; /* Take up full width on mobile */
+    padding: 1rem; /* Reduced padding */
+}
+
+    /* Flourish adjustments */
     .flourish-h1 img {
         max-width: 150px;
     }
@@ -442,12 +540,43 @@ footer {
     .flourish-h2 img {
         max-width: 100px;
     }
-}
 
-@media (max-width: 768px) {
+    /* Navigation adjustments */
     .page-nav ul {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
+
+    /* Card text adjustments */
+    .detail-card p, .hotel-card p, .detail-card a, .hotel-card a {
+        font-size: 1.1rem; /* Slightly reduced for better mobile reading */
+    }
 }
+
+/* Add a smaller breakpoint for very small devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .corner-flourish {
+        width: 45px;
+    }
+
+    .weddingDate {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .lang-switch {
+        right: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
