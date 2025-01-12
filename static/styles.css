@@ -137,6 +137,12 @@ header {
     outline-offset: -8px; /* Negative value creates inward offset */
 }
 
+header h1, 
+header .date {
+    position: relative;
+    z-index: 2; /* Ensure text stays above flourishes */
+}
+
 .headerGallery {
     height: fit-content;
     text-align: center;
@@ -152,11 +158,11 @@ header {
 }
 
 
-/* Corner flourishes */
 .corner-flourish {
     position: absolute;
-    width: 100px; /* Adjust size as needed */
+    width: 100px;
     height: auto;
+    z-index: 1; /* Ensure flourishes stay behind text */
 }
 
 .corner-flourish.ul {
@@ -464,7 +470,8 @@ footer {
         display: none;  /* Hide icons on mobile */
     }
     h1 {
-        font-size: 3rem; /* Adjusted from 2rem */
+        font-size: 3rem;
+        margin: 1rem 2rem; /* Add margin to prevent text from touching flourishes */
     }
 
     h2 {
@@ -507,7 +514,10 @@ footer {
     }
 
     .weddingDate {
-        font-size: 2rem; /* Reduced from 3rem */
+        font-size: 1.75rem;
+        margin: 0.5rem 3rem !important; /* Override existing margins and add space on sides */
+        position: relative;
+        z-index: 2; /* Ensure text stays above flourishes */
     }
 
    /* Gallery adjustments */
